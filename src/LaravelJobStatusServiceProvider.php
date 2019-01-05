@@ -16,7 +16,7 @@ class LaravelJobStatusServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/migrations');
+        $this->publishes([__DIR__ . '/migrations' => database_path('migrations')]);
 
 	    /** @var JobStatus $entityClass */
 	    $entityClass = app()->getAlias(JobStatus::class);

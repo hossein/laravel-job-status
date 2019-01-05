@@ -20,6 +20,7 @@ class CreateJobStatusesTable extends Migration
             $table->integer('attempts')->default(0);
             $table->integer('progress_now')->default(0);
             $table->integer('progress_max')->default(0);
+            $table->string('textual_progress')->nullable();
             $table->string('status', 16)->default(\Imtigger\LaravelJobStatus\JobStatus::STATUS_QUEUED)->index();
             $table->longText('input')->nullable();
             $table->longText('output')->nullable();

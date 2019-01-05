@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $attempts
  * @property int $progress_now
  * @property int $progress_max
+ * @property int $textual_progress
  * @property string $status
  * @property string $input
  * @property string $output

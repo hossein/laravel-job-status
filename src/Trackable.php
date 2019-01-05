@@ -15,18 +15,27 @@ trait Trackable
         $this->progressMax = $value;
     }
 
-    protected function setProgressNow($value, $every = 1)
+    protected function setProgressNow($value, $every = 1, $textual_progress = null)
     {
         if ($value % $every == 0 || $value == $this->progressMax) {
-            $this->update(['progress_now' => $value]);
+            $updateValues = ['progress_now' => $value];
+            if ($textual_progress !== null) {
+                $updateValues['textual_progress'] = $textual_progress;
+            }
+            $this->update($updateValues);
         }
         $this->progressNow = $value;
     }
 
-    protected function incrementProgress($offset = 1, $every = 1)
+    protected function incrementProgress($offset = 1, $every = 1, $textual_progress = null)
     {
         $value = $this->progressNow + $offset;
-        $this->setProgressNow($value, $every);
+        $this->setProgressNow($value, $every, $textual_progress);
+    }
+
+    protected function setTextualProgress(string $value)
+    {
+        $this->update(['textual_progress' => $value]);
     }
 
     protected function setInput(array $value)

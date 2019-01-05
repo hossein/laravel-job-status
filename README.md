@@ -145,6 +145,7 @@ var_dump($jobStatus->status);                 // String [queued|executing|finish
 var_dump($jobStatus->attempts);               // Integer
 var_dump($jobStatus->progress_now);           // Integer
 var_dump($jobStatus->progress_max);           // Integer
+var_dump($jobStatus->textual_progress);       // String
 var_dump($jobStatus->input);                  // Array
 var_dump($jobStatus->output);                 // Array, ['message' => $exception->getMessage()] if job failed
 var_dump($jobStatus->created_at);             // Carbon object
